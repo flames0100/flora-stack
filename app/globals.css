@@ -2,103 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles for FloraStack */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb; /* Light gray for SaaS feel */
-  color: #111827;
+/* 🌿 Global Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Custom component classes for CRM Dashboard */
-@layer components {
-  .crm-card {
-    @apply bg-white p-6 rounded-lg shadow-md border border-gray-200;
-  }
-  
-  .metric-box {
-    @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg shadow-lg;
-  }
-  
-  .leads-table {
-    @apply w-full border-collapse border border-gray-300;
-  }
-  
-  .leads-th {
-    @apply px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
-  }
-  
-  .leads-td {
-    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-t border-gray-200;
-  }
-  
-  .status-qualified {
-    @apply bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium;
-  }
-  
-  .status-prospect {
-    @apply bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium;
-  }
+html, body {
+  scroll-behavior: smooth;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* E-commerce product cards */
-.product-card {
-  @apply bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200;
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
-.product-price {
-  @apply text-3xl font-bold text-green-600;
+a:hover {
+  opacity: 0.8;
 }
 
-.add-to-cart-btn {
-  @apply w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors font-semibold;
+/* 🌸 Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-/* Cart styles */
-.cart-item {
-  @apply bg-white p-4 rounded-lg shadow-sm flex justify-between items-center border border-gray-200;
+p {
+  line-height: 1.7;
+  color: #d1d1d1;
 }
 
-.checkout-btn {
-  @apply w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors font-semibold text-lg;
+/* 🪄 Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #60a5fa 0%, #a855f7 100%);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3b82f6 0%, #9333ea 100%);
 }
 
-/* AI Assistant chat bubble styles */
-.ai-chat-bubble {
-  @apply p-3 rounded-lg max-w-xs;
+/* 🌼 Gradient Background Utility */
+.gradient-bg {
+  background: radial-gradient(circle at 20% 20%, #9333ea 0%, transparent 20%),
+              radial-gradient(circle at 80% 50%, #3b82f6 0%, transparent 25%),
+              radial-gradient(circle at 50% 80%, #10b981 0%, transparent 30%),
+              #0a0a0a;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.user-bubble {
-  @apply bg-blue-100 ml-auto text-right;
+/* ✨ Glass Effect Utility */
+.glass {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.4);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.ai-bubble {
-  @apply bg-gray-100;
-}
-
-.chat-input {
-  @apply flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500;
-}
-
-.send-btn {
-  @apply px-6 py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors font-semibold;
-}
-
-/* Global button styles for consistency */
+/* 🕊️ Buttons */
 .btn-primary {
-  @apply px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium;
+  @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium;
+  @apply px-6 py-3 rounded-xl font-semibold border border-gray-600 bg-transparent hover:bg-gray-800 transition-all duration-300;
 }
 
-/* Responsive tweaks for mobile */
-@media (max-width: 768px) {
-  .space-x-4 > * + * {
-    @apply mt-4 block w-full;
-  }
-  
-  .grid-cols-3 {
-    @apply grid-cols-1;
-  }
+/* 🌿 Container Utility */
+.container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+/* 🧭 Fancy Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌐 Dark/Light mode helper */
+:root {
+  --color-bg: #0a0a0a;
+  --color-text: #f5f5f5;
+}
+
+[data-theme='light'] {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
